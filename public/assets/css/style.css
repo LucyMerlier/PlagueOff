@@ -4,27 +4,74 @@
     box-sizing: border-box;
 }
 
-html {
-    display: flex;
+nav {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
 }
 
-nav {
-    text-align: center;
+a {
+    color: red;
+    text-decoration: none;
+}
+
+.info {
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 0.2rem;
+    border: 2px solid red;
+    border-radius: 100%;
+    justify-self: right;
 }
 
 main {
     text-align: center;
 }
 
+form {
+    width:100%;
+    display:flex;
+    flex-flow: row wrap;
+}
+
+label {
+    width: 50%;
+    text-align: right;
+}
+
+.input {
+    width: 50%;
+}
+
+.buttons {
+    width: 100%;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 .button {
-    height: 100px;
-    width: 100px;
+    height: 33vw;
+    width: 33%;
     border-radius: 100%;
-    border: solid 0;
-    background: red;
+    border: solid 2px silver;
+    box-shadow: 0 5px silver;
 }
 
-.button:hover {
-    border: solid 5px grey;
+.red {
+    background: rgb(230, 23, 23);
 }
 
+.gold {
+    background: gold;
+}
+
+.green {
+    background: rgb(0, 167, 0);
+}
+
+.button:active {
+    box-shadow: 0 5px silver;
+    transform: translateY(4px);
+}

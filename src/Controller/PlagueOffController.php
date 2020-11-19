@@ -10,6 +10,8 @@ use App\Model\PlagueOffManager;
  */
 class PlagueOffController extends AbstractController
 {
+    public const API_ERROR = "";
+
     /**
      * Method home()
      * Generates random phrase and displays home page
@@ -20,33 +22,46 @@ class PlagueOffController extends AbstractController
         $content = '';
         $voiceMessage = '';
 
+        // Check if POST is OK
         if (!empty($_POST['hardFuckOff']) && !empty($_POST['userName']) && !empty($_POST['asshole'])) {
-            $userName = ucfirst(trim($_POST['userName']));
-            $assholeName = ucfirst(trim($_POST['asshole']));
+            if ($_POST['hardFuckOff'] === 'Fuck Off Hard') {
+                $userName = ucfirst(trim($_POST['userName']));
+                $assholeName = ucfirst(trim($_POST['asshole']));
 
-            $apiUrls = [
-                'https://www.foaas.com/back/' . $assholeName . '/' . $userName,
-                'https://www.foaas.com/shakespeare/' . $assholeName . '/' . $userName,
-                'https://www.foaas.com/chainsaw/' . $assholeName . '/' . $userName,
-                'https://www.foaas.com/horse/' . $userName,
-                'https://www.foaas.com/caniuse/a%20mask/' . $userName,
-                'https://www.foaas.com/question/' . $userName,
-                'https://www.foaas.com/caniuse/soap%20when%20you%20wash%20your%20hands/' . $userName,
-                'https://www.foaas.com/yoda/' . $assholeName . '/' . $userName
-            ];
+                // links to API results
+                $apiUrls = [
+                    'https://www.foaas.com/back/' . $assholeName . '/' . $userName,
+                    'https://www.foaas.com/shakespeare/' . $assholeName . '/' . $userName,
+                    'https://www.foaas.com/chainsaw/' . $assholeName . '/' . $userName,
+                    'https://www.foaas.com/horse/' . $userName,
+                    'https://www.foaas.com/caniuse/a%20mask/' . $userName,
+                    'https://www.foaas.com/question/' . $userName,
+                    'https://www.foaas.com/caniuse/soap%20when%20you%20wash%20your%20hands/' . $userName,
+                    'https://www.foaas.com/yoda/' . $assholeName . '/' . $userName
+                ];
 
-            $content = str_replace(' - ', ' Respectfully, ', PlagueOffManager::getFoaasSentence($apiUrls));
-            $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+                // Not checking if they return API_ERROR because meh
+                $content = str_replace(' - ', ' Respectfully, ', PlagueOffManager::getFoaasSentence($apiUrls));
+                $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+            }
         } elseif (!empty($_POST['mediumFuckOff'])) {
-            $apiUrl = 'https://official-joke-api.appspot.com/random_joke';
+            if ($_POST['mediumFuckOff'] === 'Fuck Off Medium') {
+                // Link to API result
+                $apiUrl = 'https://official-joke-api.appspot.com/random_joke';
 
-            $content = PlagueOffManager::getDadJoke($apiUrl) . " Now that we had a good laugh, back off.";
-            $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+                // Not checking if they return API_ERROR because meh
+                $content = PlagueOffManager::getJoke($apiUrl) . " Now that we had a good laugh, back off.";
+                $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+            }
         } elseif (!empty($_POST['lightFuckOff'])) {
-            $apiUrl = 'https://complimentr.com/api';
+            if ($_POST['lightFuckOff'] === 'Fuck Off Light') {
+                // Link to API result
+                $apiUrl = 'https://complimentr.com/api';
 
-            $content = PlagueOffManager::getCompliment($apiUrl) . ". Now, please, back off.";
-            $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+                // Not checking if they return API_ERROR because meh
+                $content = PlagueOffManager::getCompliment($apiUrl) . ". Now, please, back off.";
+                $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
+            }
         }
 
         return $this->twig->render(
@@ -55,6 +70,11 @@ class PlagueOffController extends AbstractController
         );
     }
 
+    /**
+     * Method info()
+     * Displays a page that gives information on how to avoid the plague
+     * @return string
+     */
     public function info()
     {
         return $this->twig->render('PlagueOff/info.html.twig');

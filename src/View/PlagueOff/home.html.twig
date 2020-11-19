@@ -5,16 +5,14 @@
 {% block content %}
     <form method = "post" action = "">
         <label for = "userName">Your name :</label>
-        <input type = "text" name = "userName" value = "The guy you're too close to!" placeholder = "Frank">
+        <input class = "input" type = "text" name = "userName" value = "The guy you're too close to!" placeholder = "Frank">
         <label for = "asshole">The asshole who's not distancing :</label>
-        <input type = "text" name = "asshole" value = "Asshole" placeholder = "Asshole">
-        <input class = "button" type = "submit" name = "hardFuckOff" value = "Fuck Off Hard">
-    </form>
-    <form method = "post" action = "">
-        <input class = "button" type = "submit" name = "mediumFuckOff" value = "Fuck Off Medium">
-    </form>
-    <form method = "post" action = "">
-        <input class = "button" type = "submit" name = "lightFuckOff" value = "Fuck Off Light">
+        <input class = "input" type = "text" name = "asshole" value = "Asshole" placeholder = "Asshole">
+        <div class "buttons">
+            <input class = "button red" type = "submit" name = "hardFuckOff" value = "Fuck Off Hard">
+            <input class = "button gold" type = "submit" name = "mediumFuckOff" value = "Fuck Off Medium">
+            <input class = "button green" type = "submit" name = "lightFuckOff" value = "Fuck Off Light">
+        </div>
     </form>
     <p>{{ message }}</p>
     <audio controls>
