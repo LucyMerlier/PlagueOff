@@ -3,20 +3,15 @@
 {% block title %}Home - {{ parent() }}{% endblock %}
 
 {% block content %}
-<header>
-    <nav>
-        <a href="" target="_self"><h1>PLAGUE OFF !</h1></a>
-        <a href="" target="_self"><img src='http://placekitten.com/20/20' alt='a kitten'><a/>
-    </nav>
-</header>
-<main>
     <form method = "post" action = "">
         <label for = "userName">Your name :</label>
         <input type = "text" name = "userName" value = "The guy you're too close to!" placeholder = "Frank">
         <label for = "asshole">The asshole who's not distancing :</label>
         <input type = "text" name = "asshole" value = "Asshole" placeholder = "Asshole">
-        <button>Tell that bitch to fuck off now!</button>
+        <input type="submit" name="fuckOff">Tell that bitch to fuck off now!</input>
     </form>
     <p>{{ message }}</p>
-</main>
+    <audio controls>
+        <source src = "data:audio/wav;base64,{{ voiceMessage }}"/>
+    </audio>
 {% endblock %}

@@ -3,3 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    display: flex;
+}
+
+nav {
+    text-align: center;
+}
+
+main {
+    text-align: center;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: solid 0;
+    background: red;
+}
+
+button:hover {
+    border: solid 5px grey;
+}

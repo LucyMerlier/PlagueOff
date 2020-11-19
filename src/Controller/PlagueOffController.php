@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpClient\HttpClient;
+use App\Model\PlagueOffManager;
 
 /**
  * Class PlagueOffController
@@ -17,33 +17,34 @@ class PlagueOffController extends AbstractController
      */
     public function home(): string
     {
-        $content = "";
+        $content = '';
+        $voiceMessage = '';
 
         if (!empty($_POST['userName']) && !empty($_POST['asshole'])) {
             $userName = ucfirst(trim($_POST['userName']));
             $assholeName = ucfirst(trim($_POST['asshole']));
 
-            $client =  HttpClient::create();
             $apiUrls = [
-                'https://www.foaas.com/asshole/' . $userName,
-                'https://www.foaas.com/cool/' . $userName,
-                'https://www.foaas.com/cup/' . $userName,
                 'https://www.foaas.com/back/' . $assholeName . '/' . $userName,
-                'https://www.foaas.com/blackadder/' . $assholeName . '/' . $userName,
+                'https://www.foaas.com/chainsaw/' . $assholeName . '/' . $userName,
                 'https://www.foaas.com/horse/' . $userName,
                 'https://www.foaas.com/caniuse/a%20mask/' . $userName,
+                'https://www.foaas.com/caniuse/soap%20when%20you%20wash%20your%20hands/' . $userName,
                 'https://www.foaas.com/yoda/' . $assholeName . '/' . $userName
             ];
 
-            $result = $client->request('GET', $apiUrls[rand(0, (count($apiUrls) - 1))], [
-                'headers' => [
-                    'Accept' => 'text/plain',
-                ],
-            ]);
-
-            $content = $result->getContent();
+            $content = PlagueOffManager::getFoaasSentence($apiUrls);
+            $voiceMessage = PlagueOffManager::getVoiceRssSound(urlencode($content));
         }
 
-        return $this->twig->render('PlagueOff/home.html.twig', ['message' => $content]);
+        return $this->twig->render(
+            'PlagueOff/home.html.twig',
+            ['message' => $content, 'voiceMessage' => $voiceMessage]
+        );
+    }
+
+    public function info()
+    {
+        return $this->twig->render('PlagueOff/info.html.twig');
     }
 }
