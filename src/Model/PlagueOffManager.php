@@ -10,7 +10,8 @@ use Symfony\Component\HttpClient\HttpClient;
  */
 class PlagueOffManager
 {
-    public const URL_VOICE = 'http://api.voicerss.org/?key=b04eb53f930041159202b6b2405fe46f&hl=en-us&c=MP3&src=';
+    public const URL_VOICE =
+    'http://api.voicerss.org/?key=b04eb53f930041159202b6b2405fe46f&hl=en-us&v=mike&f=48khz_16bit_stereo&c=MP3&src=';
 
     /**
      * Method getFoaasSentence
@@ -42,5 +43,25 @@ class PlagueOffManager
         $textToSpeechResponse = $client->request('GET', self::URL_VOICE . $content);
 
         return base64_encode($textToSpeechResponse->getContent());
+    }
+
+    public static function getDadJoke(string $url): string
+    {
+        $client = HttpClient::create();
+
+        $request = $client->request('GET', $url);
+        $result = $request->toArray();
+
+        return $result['setup'] . " " . $result['punchline'];
+    }
+
+    public static function getCompliment(string $url): string
+    {
+        $client = HttpClient::create();
+
+        $request = $client->request('GET', $url);
+        $result = $request->toArray();
+
+        return ucfirst($result['compliment']);
     }
 }

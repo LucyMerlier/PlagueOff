@@ -16,7 +16,7 @@ main {
     text-align: center;
 }
 
-button {
+.button {
     height: 100px;
     width: 100px;
     border-radius: 100%;
@@ -24,6 +24,7 @@ button {
     background: red;
 }
 
-button:hover {
+.button:hover {
     border: solid 5px grey;
 }
+
