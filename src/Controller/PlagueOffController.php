@@ -23,7 +23,7 @@ class PlagueOffController extends AbstractController
         $voiceMessage = '';
 
         // Check if POST is OK
-        if (!empty($_POST['userName'])) {
+        if (!empty($_POST['userName']) && !empty($_POST['asshole'])) {
             if (!empty($_POST['hardFuckOff'])) {
                 if ($_POST['hardFuckOff'] === 'Tell them to fuck right off') {
                     $userName = ucfirst(trim($_POST['userName']));
