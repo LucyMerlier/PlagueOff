@@ -4,19 +4,28 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="refresh" content="5">-->
+    
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}PlagueOff{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
     {% block stylesheet %}{% endblock %}
-    <link rel="icon" href="/assets/images/favicon.png">
 </head>
 
 <body>
-
+    <header>
+        <nav>
+            <h1><a href="/" target="_self">Plague Off</a></h1>
+            <a class = "info" href="/PlagueOff/info" target="_self"><img class = "manuscript" src = "/assets/images/ancient-scroll.png"></a>
+        </nav>
+    </header>
+    <main>
 {% block content %}{% endblock %}
 {% block javascript %}{% endblock %}
+    </main>
+    <footer>
+        <p class = "copyright">© Copyright 2020 Wcs - Axel Hamilcaro, Lucy Merlier, Morgane Grenes, Ricardo Pereira, Léo Brossillon et Célia Boisseau - <a href="https://github.com/axelhamil/PlagueOff">GitHub</a></p>
+    </footer>
 </body>
 </html>
-
-

@@ -4,3 +4,6 @@
 *.cache
 db.php
 .idea
+/public/upload/*
+!/public/upload/.gitkeep
+.DS_Store

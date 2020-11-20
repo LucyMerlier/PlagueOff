@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Home - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <form method = "post" action = "">
+        <p id = "catchPhrase">Someone's not distancing from you? Tell that person to back off!</p>
+        <label for = "userName">Your name :</label>
+        <input class = "input" type = "text" name = "userName" value = "The guy you're too close to!" placeholder = "Frank">
+        <label for = "asshole">The guy :</label>
+        <input class = "input" type = "text" name = "asshole" value = "Asshole" placeholder = "Asshole">
+        <div class = "buttons">
+            <button class = "green" name = "lightFuckOff" value = "Gently ask them to back away">Gently ask them to back away</button>
+            <button class = "gold" name = "mediumFuckOff" value = "Tell a joke, then tell them to back off">Tell a joke, then tell them to back off</button>
+            <button class = "red" name = "hardFuckOff" value = "Tell them to fuck right off">Tell them to fuck right off</button>
+        </div>
+    </form>
+    {% if message is empty %}
+    <p id = "message">Pick a button</p>
+    {% else %}
+    <p id = "message">{{ message }}</p>
+    <audio controls>
+        <source src = "data:audio/wav;base64,{{ voiceMessage }}"/>
+    </audio>
+    {% endif %}
+{% endblock %}
