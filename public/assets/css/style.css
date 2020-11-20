@@ -1,77 +1,168 @@
+@font-face {
+    font-family: "Knights Quest";
+    src: url("../fonts/KnightsQuest.ttf")
+}
+
+@font-face {
+    font-family: "Square Caps";
+    src: url("../fonts/SquareCaps.ttf")
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgba(47, 54, 64);
+    color: #f5f6fa;
+    vertical-align: middle; 
+    font-family: "Knights Quest";
+}
+
+body {
+    margin-left:auto;
+    margin-right:auto;
+    height: 100vh;
+    max-width: 400px;
 }
 
 nav {
     display:flex;
     flex-flow: row wrap;
     justify-content: center;
-    text-align: center;
+    align-content: center;
+    width: 100%;
+}
+
+h1 {
+    width:90%;
+    font-size:2.2rem;
+    padding: 2%;
 }
 
 a {
-    color: red;
     text-decoration: none;
+    font-family: "Square Caps";
 }
 
 .info {
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 0.2rem;
-    border: 2px solid red;
-    border-radius: 100%;
-    justify-self: right;
+    width: 8%;
+    margin: 0% 2% 2% 0%;
+}
+
+a.info {
+    align-self: center;
+}
+
+.manuscript {
+    width: 100%;
 }
 
 main {
     text-align: center;
+    width:100%;
 }
 
 form {
+    height:62vh;
     width:100%;
     display:flex;
     flex-flow: row wrap;
+    font-size: 1rem;
+}
+
+#catchPhrase {
+    margin-bottom: 5%;
+    font-size: 1.4rem;
 }
 
 label {
-    width: 50%;
-    text-align: right;
+    height:5vh;
+    width: 30%;
+    text-align:center;
+    font-size: 1rem;
+    margin : 0% 0% 0% 2.5%;
 }
 
 .input {
-    width: 50%;
+    height: 5vh;
+    width: 60%;
+    height : 25px;
+    margin : 0% 2.5% 0% 5%;
+    text-align: center;
+    font-size: 1rem;
+    background-color: rgb(76, 81, 87)
 }
 
 .buttons {
+    height: 52vh;
     width: 100%;
     display:flex;
     flex-flow: row wrap;
     justify-content: center;
+    align-content: center;
+    margin:0% 2%;
 }
 
-.button {
-    height: 33vw;
-    width: 33%;
+button {
+    margin: 2%;
     border-radius: 100%;
     border: solid 2px silver;
     box-shadow: 0 5px silver;
+    font-size: 1.2rem;
+    height: 35%;
+    width: 35%;
 }
 
 .red {
-    background: rgb(230, 23, 23);
+    background: #EA2027;
 }
 
 .gold {
-    background: gold;
+    background: #F79F1F;
 }
 
 .green {
-    background: rgb(0, 167, 0);
+    background: #009432;
 }
 
 .button:active {
     box-shadow: 0 5px silver;
     transform: translateY(4px);
+}
+
+#message {
+    margin-top: 10%;
+}
+
+audio {
+    height: 10vh;
+    width: 100%;
+}
+
+.copyright {
+    font-size: 0.4rem;
+    position: fixed;
+    bottom: 0;
+    margin: 0 3% 3% 3%;
+    text-align: center;
+}
+
+.copyright a {
+    font-family: "Knights Quest";
+    text-decoration: underline;
+}
+
+/* Information page*/
+
+h3 {
+    font-family: "Square Caps";
+    font-size:1.5rem;
+    text-align: center;
+    margin:5% 0;
+}
+
+.bgesture {
+    width: 80%;
+    margin: 3% 10%;
+    font-size : 1.2rem;
 }
