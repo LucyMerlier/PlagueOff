@@ -11,6 +11,8 @@ It serves as a basis for an application that was developpped in order to help pe
 This application, called "Plague Off", lets the users run a vocal message that tells someone that is too close to them to back the f*** off.
 The vocal message can have 3 different levels of rudeness.
 
+This has been developped in less than 36 hours and presented by Axel Hamilcaro, Morgane Grenes, Léo Brossillon, Celia Boisseau, Ricardo Da Silva Pereira, and Lucy Merlier as their project for the first "Hackathon" organised by the Wild Code School during the september 2020 session.
+
 "Plague Off" uses some cool APIs as FOAAS or complimentr. 
 
 ### Check on Travis
