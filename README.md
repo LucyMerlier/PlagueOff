@@ -13,7 +13,7 @@ The vocal message can have 3 different levels of rudeness.
 
 This has been developped in less than 36 hours and presented by Axel Hamilcaro, Morgane Grenes, Léo Brossillon, Celia Boisseau, Ricardo Da Silva Pereira, and Lucy Merlier as their project for the first "Hackathon" organised by the Wild Code School during the september 2020 session.
 
-This is a fork made by myslef (Lucy Merlier) in order to try and use the application as training material in the future.
+This is a fork made by myself (Lucy Merlier) in order to try and use the application as training material in the future.
 
 "Plague Off" uses some cool APIs as FOAAS or complimentr. 
 
